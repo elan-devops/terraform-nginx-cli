@@ -7,7 +7,7 @@ This is a simple NGINX sever load balanced with ALB and ASG using Terraform and 
 
 
 <h4>Skeleton:</h4>
-```bash
+<pre>
 .
 ├── README.md
 ├── alb-asg.tf
@@ -22,7 +22,7 @@ This is a simple NGINX sever load balanced with ALB and ASG using Terraform and 
 ├── terraform.tfstate.backup
 ├── variables.tf
 └── vpc.tf
-```
+</pre>
 
 <h4>Pre-requisites:</h4>
 <h5>Install Terraform </h5>
@@ -45,7 +45,10 @@ This is a simple NGINX sever load balanced with ALB and ASG using Terraform and 
     </li>
   </ol>
   STEP 3:
-  Create aws keypair to ssh access to ec2 instances
+  <p> Create aws keypair to ssh access to ec2 instances </p>
+  
+  STEP 4:
+  <p> ec2-instances: Replace with your aws-key private_key file path = "${file("{file_path}/terraform-cli.pem")}" </p>
  </ul>
  
  
@@ -58,3 +61,4 @@ This is a simple NGINX sever load balanced with ALB and ASG using Terraform and 
 <h3> Improvement </h3>
 <p> Instead of "provisioner - ssh connection/ remote-exec" --> "user-data"
 <p> Cli - arg parser </p>
+<p> This has to be user-data = "${file("terraform-cli.pem")}" </p>

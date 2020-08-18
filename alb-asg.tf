@@ -32,7 +32,6 @@ resource "aws_alb" "default_alb" {
   }
 }
 
-# listener
 resource "aws_alb_listener" "alb_listener" {
   load_balancer_arn = "${aws_alb.default_alb.arn}"
   port              = "80"
@@ -97,5 +96,5 @@ resource "aws_autoscaling_attachment" "demo_asg_attachment" {
 }
 
 output "url" {
-  value = "http://${aws_alb.default_alb.dns_name}/"
+  value = "http://${aws_alb.default_alb.dns_name}"
 }
